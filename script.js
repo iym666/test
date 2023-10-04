@@ -9,3 +9,9 @@ let personalMovieDB = {
   genres: [],
   private: false
 };
+
+let firstQuestion = prompt('One of the last watched movie?', ''),
+    secondQuestion = prompt('How much would you rate the movie?', ''),
+    thirdQuestion = prompt('One of the last watched movie?', ''),
+    fourthQuestion = prompt('How much would you rate the movie?', '');
+
