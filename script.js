@@ -10,12 +10,11 @@ let personalMovieDB = {
   private: false
 };
 
-let firstQuestion = prompt('One of the last watched movie?', ''),
-    secondQuestion = prompt('How much would you rate the movie?', ''),
-    thirdQuestion = prompt('One of the last watched movie?', ''),
-    fourthQuestion = prompt('How much would you rate the movie?', '');
+for (let i = 0; i < 2; i++) {
+  let firstQuestion = prompt('One of the last watched movie?', ''),
+      secondQuestion = prompt('How much would you rate the movie?', '');
 
-personalMovieDB.movies[firstQuestion] = secondQuestion;
-personalMovieDB.movies[thirdQuestion] = fourthQuestion;
+  personalMovieDB.movies[firstQuestion] = secondQuestion;
+}
     
 console.log(personalMovieDB);
