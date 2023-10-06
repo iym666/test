@@ -32,18 +32,6 @@ for (let i = 0; i < 2; i++) {
     console.log('Error');
   }
 
-  // switch(personalMovieDB.count) {
-  //   case 10:
-  //     console.log('You watched pretty few films');
-  //     break;
-  //   case 10 || 30:
-  //     console.log('You are classic watcher!');
-  //     break;
-  //   case 30:
-  //     console.log('You are movie geek!');
-  //     break;
-  // }
-
 }
     
 console.log(personalMovieDB);
