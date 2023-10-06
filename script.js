@@ -22,6 +22,16 @@ for (let i = 0; i < 2; i++) {
     i--;
   }
 
+  if (personalMovieDB.count < 10) {
+    console.log('You watched pretty few films!');
+  } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+    console.log('You are classic watcher!');
+  } else if (personalMovieDB.count > 30) {
+    console.log('You are movie geek!');
+  } else {
+    console.log('Error');
+  }
+
 }
     
 console.log(personalMovieDB);
