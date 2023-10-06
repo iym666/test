@@ -10,6 +10,8 @@ let personalMovieDB = {
   private: false
 };
 
+
+//first variation of for loop
 for (let i = 0; i < 2; i++) {
   let firstQuestion = prompt('One of the last watched movie?', ''),
       secondQuestion = prompt('How much would you rate the movie?', '');
