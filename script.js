@@ -4,7 +4,13 @@ let numberOfFilms;
 
 function start() {
   numberOfFilms = +prompt('How much films did you watch?', '');
+
+  while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt('How much films did you watch?', '');
+  }
 }
+
+start();
 
 let personalMovieDB = {
   count: numberOfFilms,
