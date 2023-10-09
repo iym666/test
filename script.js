@@ -37,7 +37,7 @@ function rememberMyFilms() {
   }
 }
 
-rememberMyFilms();
+// rememberMyFilms();
 
 function detectPersonalLevel() {
   if (personalMovieDB.count < 10) {
@@ -51,7 +51,7 @@ function detectPersonalLevel() {
   }
 }
 
-detectPersonalLevel();
+// detectPersonalLevel();
 
 function showMyDB(hidden) {
   if (!hidden) {
@@ -60,3 +60,11 @@ function showMyDB(hidden) {
 }
 
 showMyDB(personalMovieDB.private);
+
+function writeYourGenres() {
+  for (let i = 1; i < 4; i++) {
+    personalMovieDB.genres[i - 1] = prompt(`Your favorite genre numbered ${i}`);
+  }
+}
+
+writeYourGenres();
