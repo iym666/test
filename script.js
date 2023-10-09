@@ -21,7 +21,7 @@ let personalMovieDB = {
 };
 
 
-//first variation of for loop
+//functions
 function rememberMyFilms() {
   for (let i = 0; i < 2; i++) {
     let firstQuestion = prompt('One of the last watched movie?', ''),
