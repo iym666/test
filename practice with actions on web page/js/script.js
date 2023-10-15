@@ -27,9 +27,8 @@ const movieDB = {
 const AD = document.querySelector('.promo__adv'),
       advertise = AD.querySelector('.promo__adv-title'),
       images = AD.querySelectorAll('img'),
-      content = document.querySelector('.promo__content'),
-      contentBG = content.querySelector('.promo__bg'),
-      contentGenre = contentBG.querySelector('.promo__genre')
+      contentBG = document.querySelector('.promo__bg'),
+      contentGenre = contentBG.querySelector('.promo__genre');
 
 
 // 1
@@ -46,4 +45,9 @@ AD.removeChild(advertise);
 contentBG.removeChild(contentGenre);
 contentBG.classList.add('promo__genre')
 contentBG.insertAdjacentHTML('afterbegin', 'DRAMA');
-// console.log(content)
+
+//3
+contentBG.style.backgroundImage = "url('img/bg.jpg')";
+console.log(contentBG);
+
+//4
