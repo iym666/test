@@ -11,42 +11,78 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
     
-    const AD = document.querySelector('.promo__adv'),
-          advertise = AD.querySelector('.promo__adv-title'),
-          images = AD.querySelectorAll('img'),
+    const AD = document.querySelectorAll('.promo__adv img'),
           contentBG = document.querySelector('.promo__bg'),
           contentGenre = contentBG.querySelector('.promo__genre'),
-          movieList = document.querySelector('.promo__interactive-list');
+          movieList = document.querySelector('.promo__interactive-list'),
+          addForm = document.querySelector('form.add'),
+          addInput = addForm.querySelector('.adding__input'),
+          checkbox = addForm.querySelector('[type="checkbox"]');
+
+    addForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let newFilm = addInput.value;
+        const favorite = checkbox.checked;
+
+        if (newFilm) {
+
+            if (newFilm.length > 21) {
+                newFilm = `${newFilm.substring(0, 22)}...`;
+            }
+
+            if (favorite) {
+                console.log('Adding favorite film')
+            }
+
+            movieDB.movies.push(newFilm);
+            sortArr(movieDB.movies);
     
-    // 1
-    images[0].remove()
-    images[1].remove()
-    images[2].remove()
-    // AD.removeChild(images[0]);
-    // AD.removeChild(images[1]);
-    // AD.removeChild(images[2]);
-    AD.removeChild(advertise);
+            createMovieList(movieDB.movies, movieList);
+        }
+
+        e.target.reset();
+    })
     
-    //2
+    const deleteAdv = (arr) => {
+        arr.forEach(item => {
+            item.remove();
+        });
+    };
     
-    contentBG.removeChild(contentGenre);
-    contentBG.classList.add('promo__genre')
-    contentBG.insertAdjacentHTML('afterbegin', 'DRAMA');
-    
-    //3
-    contentBG.style.backgroundImage = "url('img/bg.jpg')";
-    console.log(contentBG);
-    
-    //4 && 5
-    movieList.innerHTML = '';
-    
-    movieDB.movies.sort();
-    
-    movieDB.movies.forEach((film, i) => {
-        movieList.innerHTML += `
-            <li class="promo__interactive-item">${i + 1} ${film}
-                <div class="delete"></div>
-            </li>
-        `;
-    });
+    const makeChanges = () => {
+        contentGenre.textContent = 'DRAMA';
+
+        contentBG.style.backgroundImage = 'url("img/bg.jpg")';
+    };
+
+    const sortArr = (arr) => {
+        arr.sort();
+    };
+
+    function createMovieList(films, parent) {
+        parent.innerHTML = '';
+        sortArr(films);
+
+        films.forEach((film, i) => {
+            parent.innerHTML += `
+                <li class="promo__interactive-item">${i + 1} ${film}
+                    <div class="delete"></div>
+                </li>
+            `;
+        });
+
+        document.querySelectorAll('.delete').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                movieDB.movies.splice(i, 1);
+
+                createMovieList(films, parent);
+            });
+        });
+    }
+
+    deleteAdv(AD);
+    makeChanges();
+    createMovieList(movieDB.movies, movieList);
 });
